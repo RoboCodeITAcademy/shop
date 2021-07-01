@@ -4,5 +4,6 @@ from .import views
 app_name = 'shop'
 
 urlpatterns = [
-    path('', views.HomePageView.as_view(), name='home')
+    path('', views.HomePageView.as_view(), name='home'),
+    path('detail/<pk>',views.ProductDetailView.as_view(), name='detail')
 ]

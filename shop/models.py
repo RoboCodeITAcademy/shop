@@ -14,7 +14,22 @@ class Category(models.Model):
 		verbose_name_plural = 'Kategoriyalar'
 		ordering = ['name']
 
-
+class Colors(models.Model):
+	COLORS = (
+	('white','WHITE'),
+	('black','BLACK'),
+	('blue','BLUE'),
+	('green','GREEN'),
+	('yellow','YELLOW'),
+	('red','RED'),
+	('tomato','TOMATO'),
+	('pink','PINK'),
+	('teal','TEAL'),
+	('brown','BROWN'),
+	)
+	color = models.CharField('Rang nommi', max_length=50, choices=COLORS)
+	def __str__(self):
+		return self.name
 
 class Product(models.Model):
 	COLORS = (
@@ -37,6 +52,7 @@ class Product(models.Model):
 	price = models.PositiveIntegerField('Narxi', default=0, null=True)
 	old_price = models.PositiveIntegerField('Avvalgi Narxi', default=0, blank=True)
 	colors = models.CharField('Ranglari', max_length=50, choices=COLORS )
+	other_colors = models.ManyToManyField(Colors,related_name='other_colors')
 	instock = models.BooleanField("Omborda bor yoki yo'q", default=True)
 	count = models.PositiveIntegerField('Soni', default=1)
 
@@ -56,10 +72,11 @@ class ProductImages(models.Model):
 		default=None,
 		null=True,
 		blank=True,
-		on_delete=models.CASCADE)
+		on_delete=models.CASCADE,
+		related_name='product_images')
 	image = models.ImageField('Tovar alohida rasmlari',
 		upload_to='product_images/',
-		blank=True, null=True)
+		blank=True, null=True,)
 
 	def __str__(self):
 		return self.product.name
