@@ -13,7 +13,7 @@
             <nav aria-label="breadcrumb" role="navigation">
               <ol class="breadcrumb adminx-page-breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Bosh sahifa</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tovarlar</li>
+                <li class="breadcrumb-item active" aria-current="page">Tovar</li>
               </ol>
             </nav>
 
@@ -24,7 +24,9 @@
 
             <div class="row">
               <div class="col-lg-4">
-            
+            <div class="card">
+              
+         
                 
                <div id="carouselFadeExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
                 <div class="carousel-inner" role="listbox">
@@ -48,6 +50,12 @@
                   <span class="sr-only">Next</span>
                 </a>
               </div>
+              <div class="card-footer">
+                <a href="" class="btn btn-outline btn-block btn-success">
+                  <i class="fas fa-shopping-cart"></i>
+                Savatchaga olish</a>
+              </div>
+            </div>
               </div>
               <div class="col-lg-8">
                 <div class="card">
@@ -69,13 +77,24 @@
                     </p>
                     <div class="mt-2">
                       <ul class="list-group">
-                        <li class="list-group-item">Rangi - 
-                          <div class="color ml-3" style="background-color:{{object.colors}} ;"></div>
+                        <li class="list-group-item">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              Ranglari  -
+                              <div class="ml-3 d-inline-block">                            
+                              {% for color in object.other_colors.all %}
+                                <div class="color d-inline-block" style="background-color:{{color}} ;"></div>
+                             {% endfor %}
+                          </div>
+                            </div>
+                          </div>
+                          
                         </li>
-                        <li class="list-group-item">A second item</li>
-                        <li class="list-group-item">A third item</li>
-                        <li class="list-group-item">A fourth item</li>
-                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item">Kategoriyasi - {{object.category}}</li>
+                        <li class="list-group-item">Omborda - {% if object.instock %}<strong>BOR</strong>{% else %}
+                            <strong>YO'Q</strong>
+                          {% endif %}</li>
+                        <li class="list-group-item">Soni - {{object.count}}</li>
                       </ul>                                          
                     </div>
                   </div>

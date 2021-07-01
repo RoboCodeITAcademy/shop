@@ -22,7 +22,3 @@
 	border:solid 0.5px black;
 
 }
-.list-group-item{
-	display: flex;
-	flex-wrap: wrap;
-}

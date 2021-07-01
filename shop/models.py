@@ -29,7 +29,7 @@ class Colors(models.Model):
 	)
 	color = models.CharField('Rang nommi', max_length=50, choices=COLORS)
 	def __str__(self):
-		return self.name
+		return self.color
 
 class Product(models.Model):
 	COLORS = (
