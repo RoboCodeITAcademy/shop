@@ -46,7 +46,7 @@ class Product(models.Model):
 	)
 	name = models.CharField('Nomi',max_length=100,)
 	slug = models.SlugField('*',max_length=100, unique=True)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE)
+	category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
 	image = models.ImageField('Rasmi',upload_to="product_images/")
 	description = models.TextField('Tovar haqida', blank=True)
 	price = models.PositiveIntegerField('Narxi', default=0, null=True)

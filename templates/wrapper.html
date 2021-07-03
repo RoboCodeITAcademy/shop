@@ -15,6 +15,11 @@
       Feel free to delete these if you don't need them in your project
     -->
   </head>
+    <script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+  }
+  </script>
   <body>
     <div class="adminx-container">
       <nav class="navbar navbar-expand justify-content-between fixed-top">
@@ -97,7 +102,11 @@
           <!-- Notifications -->
           <li class="nav-item dropdown">
             <a class="nav-link avatar-with-name" id="navbarDropdownMenuLink" data-toggle="dropdown" href="#">
+              {% if request.user.is_authenticated %}
+              <i class="fas fa-smile"></i>
+              {% else %}
               <i class="fas fa-angry"></i>
+              {% endif %}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="#">My Profile</a>
@@ -156,27 +165,18 @@
             </a>
 
             <ul class="sidebar-sub-nav collapse" id="example">
+            {% for c in categories %}
               <li class="sidebar-nav-item">
-                <a href="./layouts/charts_chartjs.html" class="sidebar-nav-link">
+                <a href="{% url 'shop:category_detail' c.id %}" class="sidebar-nav-link">
                   <span class="sidebar-nav-abbr">
-                    Ch
+                    {{c.name|slice:'2'}}
                   </span>
                   <span class="sidebar-nav-name">
-                    ChartJS
+                    {{c.name}}
                   </span>
                 </a>
               </li>
-
-              <li class="sidebar-nav-item">
-                <a href="./layouts/charts_morris.html" class="sidebar-nav-link">
-                  <span class="sidebar-nav-abbr">
-                    Mo
-                  </span>
-                  <span class="sidebar-nav-name">
-                    Morris
-                  </span>
-                </a>
-              </li>
+              {% endfor %}
             </ul>
           </li>
 

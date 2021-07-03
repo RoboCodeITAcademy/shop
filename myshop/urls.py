@@ -20,7 +20,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('shop.urls', namespace='shop'))
+    path('', include('shop.urls', namespace='shop')),
+    path('account/', include('account.urls', namespace='account')),
+
+
+   
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,  document_root=settings.STATIC_ROOT)
