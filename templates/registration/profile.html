@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/static/dist/css/main.css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="short icon" href="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/48/Cart-icon.png">
-	<title>Login | Extra Shop</title>
+	<title>Register | Extra Shop</title>
 </head>
   <script>
   if ( window.history.replaceState ) {
@@ -17,69 +17,60 @@
   }
   </script>
 <body>
+  <div class="container">
+    <div class="row">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mt-1">
+              {{request.user.username}}
+            </h5>
+          </div>
+        </div>
+    </div>
+  </div>
 	 <div class="adminx-container d-flex justify-content-center align-items-center">
       <div class="page-login">
         <div class="text-center">
           <a class="navbar-brand mb-4 h1" href="login.html">
             <img src="/static/img/bag.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
-            ExtraShop
+            {{object.user.username}}
           </a>
         </div>
 
-        <div class="card mb-0">
-          <div class="card-body">
-            <a class="btn btn-labeled btn-block text-left btn-sm btn-facebook" href="#">
-              <span class="btn-label">
-                <i data-feather="facebook"></i>
-              </span>
-             Facebook orqali kirish
-            </a>
-            <a class="btn btn-labeled btn-block text-left btn-sm btn-twitter" href="#">
-              <span class="btn-label">
-                <i data-feather="instagram"></i>
-              </span>
-               Instagram orqali kirish
-            </a>
-            <a class="btn btn-labeled btn-block text-left btn-sm btn-twitter" href="{% url 'account:register' %}">
-              <span class="btn-label">
-                <i data-feather="plus"></i>
-              </span>
-               A'zo bo'lish
-            </a>
+     <div class="card">
+       <div class="card-header">
+         <h5>Username : {{object.user.username}}</h5>
+       </div>
+       <div class="card-body">
+        <div class="row">
+          <div class="col-sm-6">
+            {% if object.avatar %}
+                <img src="{{object.avatar.url}}" alt="">
+            {% else %}
+            <img src="https://boostchiropractic.co.nz/wp-content/uploads/2016/09/default-user-img.jpg" class="rounded-circle img-fluid"  alt="">                       
+            
+            {% endif %}
           </div>
-          <div class="card-seperator">
-            <span>yoki</span>
-          </div>
-          <div class="card-body">
-            <form method="POST">
-            	<style>
-            		#id_username, #id_password{
-            			width: 100%;
-            			padding: 5px;
-            		}
-            	</style>	
-              <div class="form-group">
-              	{% csrf_token %}
-                <label for="exampleDropdownFormEmail1" class="form-label">Email manzil</label>
-                {{form.username}}
-              </div>
-              <div class="form-group">
-                <label for="exampleDropdownFormPassword1" class="form-label">Parol</label>
-                {{form.password}}
-              </div>
-              <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                  <input type="checkbox" class="custom-control-input" id="customCheck1">
-                  <label class="custom-control-label" for="customCheck1">Eslab qoling</label>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-sm btn-block btn-primary">Kirish</button>
-            </form>
-          </div>
-          <div class="card-footer text-center">
-            <a href="#"><small>Parol esdan chiqdimi?</small></a>
+          <div class="col-sm-6">
+             <ul class="list-group">
+               <li class="list-group-item">
+                 Tug'ilgan sanasi : {{object.birthday}}
+               </li>
+               <li class="list-group-item">
+                 Telefoni : {{object.phone}}
+               </li>
+               <li class="list-group-item">
+                 Manzili : {{object.address}}
+               </li>
+             </ul>
           </div>
         </div>
+        
+       </div>
+       <div class="card-footer">
+         <a href="{% url 'account:update_profile' object.id %}" class="btn btn-success">Profilni yangilish</a>
+       </div>
+     </div>
       </div>
     </div>
 

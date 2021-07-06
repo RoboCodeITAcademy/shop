@@ -13,5 +13,5 @@ urlpatterns = [
     	views.CategoryDetailView.as_view(),
     	name='category_detail'
     	),
-     path('test/', views.test_user, name='test')
+     path('cart/', views.CartDetailView.as_view(), name='cart')
 ]
