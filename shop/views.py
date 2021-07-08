@@ -10,6 +10,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import *
 # Create your views here.
 
+from django.conf import settings
+from django.core.mail import send_mail
+
+
 # 1. TemplateView
 # 2. ListView
 # 3. DetailView
@@ -34,3 +38,13 @@ class ProductDetailView(DetailView):
 class CartDetailView(ListView):
 	model = Product
 	template_name = 'shop/cart.html'
+
+
+def send_mails(request):
+	user = request.user
+	subject = 'welcome to GFG world'
+	message = f'Hi {user.username}, thank you for registering in geeksforgeeks.'
+	email_from = settings.EMAIL_HOST_USER
+	sending = send_mail( subject, message, email_from, [user.email])
+	if sending:
+		return HttpResponse('Done')

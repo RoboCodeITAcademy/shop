@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/static/dist/css/main.css"  />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="short icon" href="https://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/48/Cart-icon.png">
-	<title>Register | Extra Shop</title>
+	<title>Profile {{request.user.get_full_name}} | Extra Shop</title>
 </head>
   <script>
   if ( window.history.replaceState ) {
@@ -19,10 +19,16 @@
 <body>
   <div class="container">
     <div class="row">
-        <div class="card">
+        <div class="card w-100">
           <div class="card-header">
             <h5 class="mt-1">
-              {{request.user.username}}
+              {{request.user.username}} Profilni o'zgartirish 
+                 <div class="text-center">
+          <a class="navbar-brand mb-1 h1" href="login.html">
+            <img src="/static/img/bag.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
+            {{object.user.username}}
+          </a>
+        </div>
             </h5>
           </div>
         </div>
@@ -30,12 +36,7 @@
   </div>
 	 <div class="adminx-container d-flex justify-content-center align-items-center">
       <div class="page-login">
-        <div class="text-center">
-          <a class="navbar-brand mb-4 h1" href="login.html">
-            <img src="/static/img/bag.png" class="navbar-brand-image d-inline-block align-top mr-2" alt="">
-            {{object.user.username}}
-          </a>
-        </div>
+     
 
      <div class="card">
        <div class="card-header">
@@ -45,9 +46,8 @@
         <div class="row">
           <div class="col-sm-6">
             {% if object.avatar %}
-                <img src="{{object.avatar.url}}" alt="">
-            {% else %}
-            <img src="https://boostchiropractic.co.nz/wp-content/uploads/2016/09/default-user-img.jpg" class="rounded-circle img-fluid"  alt="">                       
+          
+            <img src="{{object.avatar.url}}" class="rounded-circle img-fluid"  alt="">                       
             
             {% endif %}
           </div>
@@ -61,6 +61,11 @@
                </li>
                <li class="list-group-item">
                  Manzili : {{object.address}}
+               </li>
+               <li class="list-group-item">
+                 <a href="{% url 'shop:user_send_mail' %}" class="btn btn-primary">
+                   <i data-feather="user"></i>
+                 </a>
                </li>
              </ul>
           </div>

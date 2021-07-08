@@ -15,10 +15,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop',
-    'account',
     'crispy_forms'
 ]
 
@@ -103,7 +102,7 @@ AUTHENTICATION_BACKENDS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -113,6 +112,23 @@ USE_L10N = True
 
 USE_TZ = True
 
+# EMAIL_BACKEND = 'bandit.backends.smtp.HijackSMTPBackend'
+# BANDIT_EMAIL = 'rashidovabdurakhmon@mail.ru'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EМAIL = 'rashidovabdurakhmon@mail.ru'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_HOST_USER = "bu yerga mail.ru pochta yoziladi"
+EMAIL_HOST_PASSWORD = "bu yerga pochta paroli"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = DEFAULT_FROM_EМAIL
+# EMAIL_HOST_PASSWORD = 'admin1030'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
