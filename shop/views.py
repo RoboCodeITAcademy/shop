@@ -34,12 +34,8 @@ class HomePageView(LoginRequiredMixin,ListView):
 class ProductDetailView(DetailView):
 	model = Product
 
+
 # @login_required
-class CartDetailView(ListView):
-	model = Product
-	template_name = 'shop/cart.html'
-
-
 def send_mails(request):
 	user = request.user
 	subject = 'welcome to GFG world'

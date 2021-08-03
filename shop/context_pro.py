@@ -1,14 +1,16 @@
 from .models import Category
-from django.contrib.auth.models import User
-from account.models import Profile
+from cart.models import Cart
 
 
 def view_all(request):
-	
-	# for i in user:
-	# 	print(i.id)
+	try:
+		cart = Cart.objects.get(id=request.session.get('user_cart_id'))
+	except:
+		cart = {'status':'Savatcha topilmadi!'}
+	print(cart)
 	context = {
 		'categories':Category.objects.all(),
-		
+		'cart':cart
+
 	}
 	return context

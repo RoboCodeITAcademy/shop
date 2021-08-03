@@ -13,8 +13,7 @@ urlpatterns = [
     	views.CategoryDetailView.as_view(),
     	name='category_detail'
     	),
-     path('cart/', views.CartDetailView.as_view(), name='cart'),
 
 
-     path('send/',views.send_mails, name='user_send_mail')
+#      path('send/',views.send_mails, name='user_send_mail')
 ]

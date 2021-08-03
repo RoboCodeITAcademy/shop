@@ -63,24 +63,20 @@
               </div>
 
               <div class="list-group">
-
-                <a href="#" class="list-group-item list-group-item-action">
+                {% for item in cart.products.all %}
+                  <a href="{% url 'shop:detail' item.product.id %}" class="list-group-item list-group-item-action">
+                  <img src="{{ item.product.image.url }}"
+                           style="float: right;"
+                           width="70" alt="">
                   <p class="mb-1">
-                      <strong class="text-success">Nike Air Max 2015</strong><br />
-                      Nike Air Max
-                      <strong>$ 145</strong>
+                      <strong class="text-success">{{ item.product.name}}</strong><br />
+                      {{ item.product.category}}
+                      <strong>$ {{ item.product.price }}</strong>
                   </p>
-                  <small>1 dona</small>
-                </a>
+                  <small>{{ item.quantity }} dona</small><small>Umumiy summa ${{ item.price }}</small>
 
-               <a href="#" class="list-group-item list-group-item-action">
-                  <p class="mb-1">
-                      <strong class="text-success">Nike Air Space</strong><br />
-                      Nike Air
-                      <strong>$ 123</strong>
-                  </p>
-                  <small>2 dona</small>
                 </a>
+                {% endfor %}
               </div>
 
               <div class="notifications-footer text-center">
@@ -424,6 +420,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="/static/dist/js/vendor.js"></script>
     <script src="/static/dist/js/adminx.js"></script>
+    <script src="/static/cart.js"></script>
 
     <!-- If you prefer vanilla JS these are the only required scripts -->
     <!-- script src="./dist/js/vendor.js"></script>

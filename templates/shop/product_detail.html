@@ -51,9 +51,24 @@
                 </a>
               </div>
               <div class="card-footer">
-                <a href="" class="btn btn-outline btn-block btn-success">
-                  <i class="fas fa-shopping-cart"></i>
-                Savatchaga olish</a>
+              <div class="row">
+                  <div class="col-sm-6">
+                        <a href="#"
+                           onclick="AddToCart({{ object.id }})"
+                           class="btn btn-outline btn-block btn-success">
+                          <i class="fas fa-shopping-cart"></i>
+                        Savatchaga olish</a>
+                  </div>
+                  <div class="col-sm-6">
+                      <select class="custom-select" id="product_qty">
+                          <option value="1" selected>1 dona</option>
+                          <option value="2">2 dona</option>
+                          <option value="3">3 dona</option>
+                          <option value="4">4 dona</option>
+                          <option value="5">5 dona</option>
+                      </select>
+                  </div>
+              </div>
               </div>
             </div>
               </div>
