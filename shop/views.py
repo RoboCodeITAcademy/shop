@@ -18,6 +18,12 @@ from django.core.mail import send_mail
 # 2. ListView
 # 3. DetailView
 # 4. View
+
+def entry_not_found(request, exception=None):
+    return render(request, '404.html')
+
+
+
 class CategoryDetailView(DetailView):
 	model = Category
 	# template_name = ''

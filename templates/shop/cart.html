@@ -28,6 +28,11 @@
                     <div class="card-header-title">Tovarlar</div>
                   </div>
                   <div class="table-responsive-md">
+                      {% if not cart.products %}
+                        <div class="alert alert-danger m-5 w-25">
+                            <h4>Tovarlar topilmadi !</h4>
+                        </div>
+                      {% else %}
                     <table class="table table-actions table-striped table-hover mb-0">
                       <thead>
                         <tr>
@@ -46,6 +51,7 @@
                         </tr>
                       </thead>
                       <tbody>
+
                       {% for product in cart.products.all %}
                           {% with product as item %}
                             <tr>
@@ -65,16 +71,25 @@
                             <span>$ <strong>{{ item.price }}</strong></span>
                           </td>
                           <td>
-                            <button class="btn btn-sm btn-primary">Edit</button>
-                            <button class="btn btn-sm btn-danger">Delete</button>
+                            <a href="{% url 'cart:delete' item.product.id item.quantity %}" class="btn btn-sm btn-danger">Delete</a>
                           </td>
                         </tr>
                           {% endwith %}
                       {% endfor %}
-
+                      {% endif %}
 
                       </tbody>
                     </table>
+                  <tfoot  >
+                       <tr>
+                         <td>
+                              <a href="{% url 'cart:remove' %}" class="btn btn-danger m-2">
+                                  <i data-feather="trash-2"></i>
+                                  Savatchani tozalash
+                              </a>
+                         </td>
+                     </tr>
+                  </tfoot>
                   </div>
                 </div>
               </div>
@@ -84,10 +99,24 @@
                     <div class="container">
                     <div class="card p-5">
                         <div class="mt-2">
-                            <h4>Barcha tovarlar :  <strong>{{ cart.total_quantity }}</strong> ta</h4>
+                            <h4>Barcha tovarlar :
+                                {% if cart.total_quantity %}
+                                <strong>{{ cart.total_quantity }}</strong>
+                                {% else %}
+                                    <strong>0</strong>
+                                {% endif %}
+
+                                ta</h4>
                         </div>
                         <div class="mt-2">
-                            <h4>Umumiy summa : $ <strong>{{ cart.total_price }}</strong></h4>
+                            <h4>Umumiy summa : $
+                                {% if cart.total_price  %}
+                                 <strong>{{ cart.total_price }}</strong>
+                                {% else %}
+                                     <strong>0</strong>
+                                {% endif %}
+
+                            </h4>
                         </div>
                         </div>
                     </div>

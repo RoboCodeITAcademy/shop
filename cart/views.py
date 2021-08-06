@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Cart
-from django.http import JsonResponse
+from shop.models import Product
+from django.http import JsonResponse, HttpResponse
 # Create your views here.
 def cart_init(request):
     try:
@@ -32,3 +33,17 @@ def addToCart(request):
     else:
         status['error'] = 400
     return JsonResponse(status)
+
+def deleteCartItem(request,product_id,qty):
+    cart = Cart.objects.get(id=request.session.get('user_cart_id'))
+    cart.deleteItem(product_id,qty)
+    return redirect('cart:cart')
+
+def removeCart(request):
+    print(request.path)
+    try:
+        cart = Cart.objects.get(id=request.session.get('user_cart_id'))
+    except:
+        return redirect('cart:cart')
+    cart.delete()
+    return redirect('cart:cart')
