@@ -8,3 +8,6 @@ class CartAdmin(admin.ModelAdmin):
 @admin.register(CardProduct)
 class CartProductAdmin(admin.ModelAdmin):
     list_display = ['product','quantity','price']
+
+admin.site.register(Order)
+admin.site.register(OrderProduct)

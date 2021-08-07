@@ -1,7 +1,9 @@
 from django.shortcuts import render,redirect
-from .models import Cart
+from .models import *
 from shop.models import Product
 from django.http import JsonResponse, HttpResponse
+from .forms import AddOrderForm
+
 # Create your views here.
 def cart_init(request):
     try:
@@ -47,3 +49,24 @@ def removeCart(request):
         return redirect('cart:cart')
     cart.delete()
     return redirect('cart:cart')
+
+def addOrder(request,cart_id):
+    cart = Cart.objects.get(id=cart_id)
+    if request.method == 'POST':
+        form = AddOrderForm(request.POST)
+        if form.is_valid():
+           order =  form.save()
+           for p in cart.products.all():
+               order.products.create(
+                   product=p.product,
+                   quantity=p.quantity,
+                   price=p.quantity * p.price
+               )
+           order.payed = False
+           order.save()
+           last_order = Order.objects.last()
+           return render(request, 'shop/order_done.html', {'order': last_order})
+    else:
+        form = AddOrderForm()
+    # pass
+    return render(request,'shop/order.html',{'form':form} )

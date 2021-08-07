@@ -1,0 +1,68 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+      <!-- adminx-content-aside -->
+      <div class="adminx-content">
+        <!-- <div class="adminx-aside">
+
+        </div> -->
+
+        <div class="adminx-main-content">
+          <div class="container-fluid">
+            <!-- BreadCrumb -->
+            <nav aria-label="breadcrumb" role="navigation">
+              <ol class="breadcrumb adminx-page-breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Bosh sahifa</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Buyurtma</li>
+              </ol>
+            </nav>
+
+            <div class="pb-3">
+              <h1>Buyurtma </h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card mb-grid">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div class="card-header-title">Tovarlar</div>
+                          </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                 <div class="mt-2">
+                                    <form action="" method="post" class=" m-5">
+                                        {{ form|crispy }}
+                                        {% csrf_token %}
+                                        <input type="submit" value="Tasdiqlash"
+                                               class="btn btn-outline-info">
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                    <div class="mt-5">
+                                        <table class="table-responsive-md">
+                                            <tr>
+                                                <td>Umumiy tovarlar soni : {{ cart.total_quantity }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td>Umumiy summasi: {{ cart.total_price }}</td>
+                                            </tr>
+                                             <tr>
+                                                <td>To'lov uchun : 100</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

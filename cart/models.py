@@ -48,3 +48,26 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"Cart = {self.id}"
+    
+
+class OrderProduct(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='order_product'
+    )
+    quantity = models.PositiveIntegerField(default=0)
+    price = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return str(self.product.name)
+
+class Order(models.Model):
+    products = models.ManyToManyField(OrderProduct, related_name='order_products')
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=200)
+    phone = models.PositiveIntegerField(default=0)
+    payed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.name)

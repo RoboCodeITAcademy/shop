@@ -124,6 +124,12 @@
                 <div class="col-md-6">
                     <div class="alert alert-danger">
                         <h2>Cart total card</h2>
+                        {% if cart %}
+                        <h4>{{ cart }}</h4>
+                        {% endif %}
+                        <a href="{% url 'cart:add_order' cart.id %}" class="btn btn-outline-success">
+                            Buyurtma
+                        </a>
                     </div>
                 </div>
             </div>
