@@ -1,1 +1,5 @@
-{% extends 'wrapper.html' %} {% load static %} {% block content %} {% endblock %}
+{% extends 'wrapper.html' %} {% load static %} {% block content %}
+<center>
+    <h1><a href="{% url 'social:begin' 'google-oauth2' %}" target="_blank">Google</a></h1>
+</center>
+{% endblock %}
