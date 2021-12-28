@@ -19,6 +19,9 @@ from django.core.mail import send_mail
 # 3. DetailView
 # 4. View
 
+def register(request):
+    return render(request, "registration/register.html")
+
 def entry_not_found(request, exception=None):
     return render(request, '404.html')
 

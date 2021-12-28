@@ -117,8 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# LOGIN_URL = '/account/login/'
-# LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/account/login/'
+LOGIN_REDIRECT_URL = '/'
 AUTHENTICATION_BACKENDS = [
   
     # Needed to login by username in Django admin, regardless of `allauth`

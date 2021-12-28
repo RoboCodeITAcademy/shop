@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> {% block title %}
+    <title>Shop Django Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" integrity="sha512-IgmDkwzs96t4SrChW29No3NXBIBv8baW490zk5aXvhCD8vuZM3yUSkbyTBcXohkySecyzIrUwiF/qV0cuPcL3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    /> {% endblock %}
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-5">
+                    <div class="title">Shop Django Login Form</div>
+                    <form action="#" method="post">
+                        <div class="field">
+                            {% csrf_token %}
+                            <p class="control has-icons-left has-icons-right">
+                                {{form.username}}
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                              </span>
+                                <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                              </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                {{form.password}}
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                              </span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <div class="subtitle">
+                                    <a href="/register/" class="button">Register</a>
+                                </div>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control">
+                                <button class="button is-success">
+                                Login
+                              </button>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+                <div class="column is-7">
+                    aaa
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let u = document.getElementById("id_username");
+        let p = document.getElementById("id_password");
+        u.classList.add("input")
+        p.classList.add("input")
+    </script>
+</body>
+
+</html>

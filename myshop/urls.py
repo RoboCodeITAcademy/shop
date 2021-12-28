@@ -18,13 +18,17 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from django.contrib.auth.views import LoginView, LogoutView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('shop.urls', namespace='shop')),
     path('', include('social_django.urls', namespace='social')),
     # path('cart/', include('cart.urls', namespace='cart')),
     # path('account/', include('account.urls', namespace='account')),
-
+ 
+    path("login/",LoginView.as_view(), name='login' ),
+    path("logout/",LogoutView.as_view(template_name='registration/logout.html'), name='logout' ),
 
    
 ]
