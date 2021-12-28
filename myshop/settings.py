@@ -103,8 +103,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-LOGIN_URL = '/account/login/'
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_URL = '/account/login/'
+# LOGIN_REDIRECT_URL = '/'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
@@ -127,19 +127,6 @@ USE_TZ = True
 # BANDIT_EMAIL = 'rashidovabdurakhmon@mail.ru'
 
 
-# EMAIL_HOST = 'smtp.mail.ru'
-# EMAIL_PORT = 2525
-# EMAIL_HOST_USER = "bu yerga mail.ru pochta yoziladi"
-# EMAIL_HOST_PASSWORD = "bu yerga pochta paroli"
-# EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# DEFAULT_FROM_EМAIL = 'djangoforrobocode@gmail.ru'
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'djangoforrobocode@gmail.com'
-EMAIL_HOST_PASSWORD = 'robocodeitacademy'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/

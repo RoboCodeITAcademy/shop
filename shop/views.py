@@ -29,8 +29,8 @@ class CategoryDetailView(DetailView):
 	# template_name = ''
 	
 	
-class HomePageView(LoginRequiredMixin,ListView):
-	login_url = '/account/login/'
+class HomePageView(ListView):
+	# login_url = '/account/login/'
 	model = Product
 	paginate_by = 4
 	template_name = 'index.html'
