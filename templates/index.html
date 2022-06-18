@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- <//////////////> -->
+<!-- <//////////////> -->
+<!-- <//////////////> -->
+
+<!-- Banners start -->
+<section>
+    <div class="wrapper">
+        <div class="banner_wr">
+            <div class="goods">
+                <h1 class="heading">Fashionable <span class="oranged">Clothes </span><br> <span class="oranged">Buyurtma</span> Bering</h1>
+                <img class="widthed" src="image/115-1151600_all-blacks-mens-dan-carter-white-t-shirt.png" alt="clothes-image">
+            </div>
+        </div>
+    </div>
+</section>
+<!-- sections end -->
+<!-- Banners end -->
+<!-- <//////////////> -->
+<!-- <//////////////> -->
+<!-- <//////////////> -->
+
+<!-- Card section's start -->
+<section>
+    <div class="wrapper">
+        <div class="card_wr_st">
+            <h2 class="about-heading"> <span class="oranged">Top</span> Tovarlar</h2>
+            <div class="row justify-content-between leasure-pad felx-wrap">
+                {% for product in products|slice:'3' %}
+                <div class="card-bx limited-width">
+                    <a href="{{product.get_absolute_url}}">
+                        <img class="card-widthed" src="{{product.image1.url}}" alt="T-shirt"></a>
+                    <br>
+                    <h1 class="cards-title">
+                        <span class="oranged">
+                           <a class='text-decoration-none text-warning' href="{{product.get_absolute_url}}">{{product.name}}</a>  </span>
+                    </h1>
+                </div>
+                {% endfor %}
+
+            </div>
+
+
+
+
+            <!-- Second Row -->
+            <h2 class="about-heading ms-2"> <span class="oranged">Sotuvdagi</span> Tovarlar</h2>
+            <div class="row justify-content-between leasure-pad flex-wrap">
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"><img class="card-widthed" src="image/115-1151600_all-blacks-mens-dan-carter-white-t-shirt.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">Black <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 4.7</a>
+
+                </div>
+
+
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"> <img class="card-widthed" src="image/891cdd_2bd0cbaf31b743cba9e51728d62a0a3f_mv2 copy.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">White <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 3.1</a>
+                </div>
+
+
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"><img class="card-widthed" src="image/—Pngtree—men's t-shirt_5613702 2.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">Star <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"> <img class="star-widthed" src="image/Vector (4).png" alt="star"> 5.2</a>
+                </div>
+
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"><img class="card-widthed" src="image/115-1151600_all-blacks-mens-dan-carter-white-t-shirt.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100 ">
+                        <div>
+                            <h3 class="title">Black <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 4.7 </a>
+
+                </div>
+
+
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"><img class="card-widthed" src="image/891cdd_2bd0cbaf31b743cba9e51728d62a0a3f_mv2 copy.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">White <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 3.1 </a>
+                </div>
+
+
+
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"> <img class="card-widthed" src="image/—Pngtree—men's t-shirt_5613702 2.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">Star <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 5.2 </a>
+                </div>
+
+
+
+
+            </div>
+
+
+            <!--Third Rows start  -->
+
+            <h2 class="about-heading ms-2"> <span class="oranged">Ommabop</span> Tovarlar</h2>
+            <div class="row justify-content-between leasure-pad flex-wrap">
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"><img class="card-widthed" src="image/115-1151600_all-blacks-mens-dan-carter-white-t-shirt.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">Black <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 4.7</a>
+
+                </div>
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"> <img class="card-widthed" src="image/891cdd_2bd0cbaf31b743cba9e51728d62a0a3f_mv2 copy.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">White <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"><img class="star-widthed" src="image/Vector (4).png" alt="star"> 3.1</a>
+                </div>
+                <div class=" card-bx limited-width">
+                    <a class="floated-left" href="#"><i class="fa-solid fa-heart"></i></a>
+                    <a href="detail.html"><img class="card-widthed" src="image/—Pngtree—men's t-shirt_5613702 2.png" alt="T-shirt"></a>
+                    <div class="d-flex align-items-center justify-content-between w-100">
+                        <div>
+                            <h3 class="title">Star <span class="oranged">Shark</span></h3>
+                        </div>
+                        <a class="oranged-price" href="#"><span class="sized">2789</span> $</a>
+
+                    </div>
+                    <!-- star -->
+                    <a href="#" class="star"> <img class="star-widthed" src="image/Vector (4).png" alt="star"> 5.2</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Card sectiom's end -->
+<!-- <//////////////> -->
+<!-- <//////////////> -->
+<!-- <//////////////> -->
+
+{% endblock %}
