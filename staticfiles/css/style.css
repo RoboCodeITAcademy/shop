@@ -162,8 +162,8 @@ h1,h2{
 footer{
     background-color: #fff;
     padding: 30px 20px;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-radius: 30px;
+
     box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     width: 100% !important;
 }

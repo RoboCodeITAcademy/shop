@@ -9,7 +9,8 @@
     <title>Mino Online Store</title>
     {% endblock%}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
     <!-- link for Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -19,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid wrapper">
-                <a class="navbar-brand" href="#">M<span class="oranged">i</span>n<span class="oranged">o</span></a>
+                <a class="navbar-brand" href="/">M<span class="oranged">i</span>n<span class="oranged">o</span></a>
 
                 <div class="d-flex align-items-center gap-2">
                     <div class="pointer hidden">
@@ -34,43 +35,20 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center gap-3 lefted-block" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="image/Vector (1).png" alt="phones-image"> Выбрать модель телефона
+                                <i class="fas fa-t-shirt"></i>
+                                Kategoriyalar
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Apple</a></li>
+                                {% for category in categories %}
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        {{category.name}}
+                                    </a>
+                                </li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item" href="#">INOI</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Nokia</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Oppo</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Xiaomi</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Realme</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Samsung</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Sony</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Vivo</a></li>
-
+                                {% endfor %}
                             </ul>
                         </li>
                     </ul>
@@ -133,7 +111,8 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- <script src="{% static 'bootstrap.min.js' %}" ></script> -->
+    <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
 
 </body>
 

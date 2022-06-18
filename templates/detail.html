@@ -20,29 +20,70 @@
             <!--Images Wrapper  -->
             {% if product.image2 or product.image3 %}
             <div class="row">
-                <div class='col-sm-12 col-md-6'>
-                    <img class="w-50" src="{{product.image1.url}}">
+                <div class='col-sm-12 col-md-12'>
+                    <div class="row">
+                        <div class='col-sm-12 col-md-6'>
+                           <center>
+                            <img class="w-100" src="{{product.image1.url}}">
+                           </center>
+                        </div>
+                        <div class='col-sm-12 col-md-6 px-3'>
+                            <h1 class="fw-bold fs-1 text-warning">${{product.price}}</h1>
+                            <h4 class="fw-bold">{{product.name}}</h4>
+                            {% if product.in_stock %}
+                            <p>                                
+                                Omborda : <i class='fas fa-check'></i> <br>
+                                Soni : {{product.count}}                               
+                            </p>
+                            {% endif %}
+                            <p class="fw-bold">                                
+                                Kategoriyasi : {{ product.category }}                               
+                            </p>
+                            
+                            <p class="font-600">{{product.description}}</p>
+                                  <!-- Second Div -->
+                        <div class="btns-wrapper">
+                            <a class="buy font-500" href="#">Sotib olish!</a>
+                            <a class="add-to-basket font-500" href="#">Savatchaga olish</a>
+                        </div>
+                        </div>
+                    </div>
+                    
                 </div>
                 {% else%}
                 <div class='col-sm-12 col-md-12'>
                     <div class="row">
                         <div class='col-sm-12 col-md-6'>
-                            <img class="w-75" src="{{product.image1.url}}">
+                            <center>
+                                <img class="w-100" src="{{product.image1.url}}">
+                            </center>
+                            <br>
                         </div>
-                        <div class='col-sm-12 col-md-6 px-5'>
-                            <h4 class="font-600">{{product.name}}</h4>
+                        <div class='col-sm-12 col-md-6 px-3'>
+                            <h1 class="fw-bold fs-1 text-warning">${{product.price}}</h1>
+                            <h4 class="fw-bold">{{product.name}}</h4>
+                            {% if product.in_stock %}
+                            <p>                                
+                                Omborda : <i class='fas fa-check'></i> <br>
+                                Soni : {{product.count}}                               
+                            </p>
+                            {% endif %}
+                            <p class="fw-bold">                                
+                                Kategoriyasi : {{ product.category }}                               
+                            </p>
+                            
                             <p class="font-600">{{product.description}}</p>
-                                  <!-- Second Div -->
-            <div class="btns-wrapper">
-                <a class="buy font-500" href="#">Купить!</a>
-                <a class="add-to-basket font-500" href="#">Добавить в корзину</a>
-            </div>
+                            <div class="btns-wrapper">
+                                <a class="buy font-500" href="#">Sotib olish!</a>
+                                <a class="add-to-basket font-500" href="#">Savatchaga olish</a>
+                            </div>
+                        </div>
                         </div>
                     </div>
                     
                 </div>
                 {% endif %}
-                <div class='col-sm-12 col-md-6'>
+                <!-- <div class='col-sm-12 col-md-6'>
                     {% if product.image2 %}
                     <img class="w-50" src="{{product.image2.url}}">
                     {% endif %}
@@ -50,7 +91,7 @@
                     {% if product.image3 %}
                     <img class="w-50" src="{{product.image3.url}}">
                     {% endif %}
-                </div>
+                </div> -->
                 
          
             </div>
@@ -65,34 +106,6 @@
 <!-- <//////////////> -->
 
 <br>
-<!-- List sections start -->
-<section>
-    <div class="wrapper">
-        <div class="d-lg-flex align-items-start justify-content-between ">
-            <div class="list-wr">
-                <div class="list-header">
-                    <p class="font-500">Описание и характеристики</p>
-                </div>
-                <br>
-                <div class="pd-wrapper">
-                    <p class="font-500">Активное шумоподавление: Нет</p>
-                    <p class="font-500">Активное шумоподавление: Нет</p>
-                    <p class="font-500">Микрофон: Да</p>
-                    <p class="font-500">Активное шумоподавление: Нет</p>
-                    <p class="font-500">Активное шумоподавление: Нет</p>
-                    <p class="font-500">Активное шумоподавление: Нет</p>
-                    <p class="font-500">Регулятор громкости: Да</p>
-                    <p class="font-500">Активное шумоподавление: Нет</p>
-                    <p class="font-500">Чувствительность: 109 дБ</p>
-
-                </div>
-            </div>
-
-
-      
-        </div>
-    </div>
-</section>
 
 
 
